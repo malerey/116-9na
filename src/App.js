@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
-function App() {
+import Main from './Main';
+import NewMovies from './NewMovies';
+import Popular from './Popular';
+import beieza from "./assets/beieza.jpg"
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+    <img src={beieza} />
+    {/* // componentes de vista / componentes contenedores:
+    componentes encargados de generar la vista de una pagina, la estructura general
+    llaman a otros componentes para formar estructura
+    y les dan la informacion que necesitan --> se encargan del fetch
+
+    Si tienen ganas de investigar alternativas, lean sobre 
+    HIGHER ORDER COMPONENTS
+    o HOC 
+
+    // componentes funcionales  */}
+
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Main />}></Route>
+    <Route path="/new" element={<NewMovies />}></Route>
+    <Route path="/popular" element={<Popular />}></Route>
+  </Routes>
+</BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
